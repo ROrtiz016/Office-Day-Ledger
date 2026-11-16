@@ -48,8 +48,9 @@ struct DashboardView: View {
         }
         .padding(18)
         }
-        .frame(width: 360)
-        .frame(maxHeight: min(700, (NSScreen.main?.visibleFrame.height ?? 800) - 80))
+        // MenuBarExtra sizes its panel from this view's ideal size. A ScrollView
+        // with only a maximum height can otherwise collapse to an empty strip.
+        .frame(width: 360, height: min(700, (NSScreen.main?.visibleFrame.height ?? 800) - 80))
         .background(Color(nsColor: .windowBackgroundColor))
         .alert("Office Wi-Fi detected", isPresented: Binding(
             get: { store.pendingDayKey != nil },

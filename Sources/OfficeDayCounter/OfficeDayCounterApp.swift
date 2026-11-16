@@ -24,7 +24,7 @@ struct OfficeDayCounterApp: App {
     }
 
     var body: some Scene {
-        MenuBarExtra("Office Days", systemImage: store.todayIsMarked ? "building.2.fill" : "building.2") {
+        MenuBarExtra("Office Days", systemImage: store.todayIsMarked ? "building.2.fill" : "building.2", isInserted: .constant(true)) {
             DashboardView(store: store)
         }
         .menuBarExtraStyle(.window)
